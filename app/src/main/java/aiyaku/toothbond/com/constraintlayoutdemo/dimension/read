@@ -1,0 +1,48 @@
+##尺寸约束（Dimensions constraints）
+
+###1、ConstraintLayout的最小尺寸 (Minimum dimensions on ConstraintLayout)
+
+  可以为ConstraintLayout 自身定义最小的尺寸，他会在 ConstraintLayout为WRAP_CONTENT时起作用。
+  
+  * android:minWidth  
+  * android:minHeight
+  
+###2、控件尺寸约束（Widgets dimension constraints）
+
+控件的宽高有三种方式为其设置： 
+* 确定尺寸 
+* WRAP_CONTENT 
+* 0dp，就等于MATCH_CONSTRAINT
+
+而MATCH_PARENT不再被支持了，通过MATCH_CONSTRAINT替代。 
+
+###3、比例（Ratio）约束
+
+只有一个方向约束：
+
+可以以比例去定义View的宽高。 
+为了做到这一点，需要将至少一个约束维度设置为0dp（即MATCH_CONSTRAINT） 
+并将属性layout_constraintDimentionRatio设置为给定的比例。
+
+ #
+      <Button
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:text="Ratio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintTop_toTopOf="parent"/>
+        
+ 宽高都被约束了
+ 
+ 如果两个维度均设置为MATCH_CONSTRAINT（0dp），也可以使用比例。 在这种情况下，系统会使用满足所有约束条件和比率的最大尺寸。 
+ 如果需要根据一个维度的尺寸去约束另一个维度的尺寸。 
+ 则可以在比率值的前面添加 W 或者 H 来分别约束宽度或者高度。
+ 
+ #
+     <Button
+         android:layout_width="0dp"
+         android:layout_height="0dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintDimensionRatio="H,2:1"
+         app:layout_constraintTop_toTopOf="parent"/>

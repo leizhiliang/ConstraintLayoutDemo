@@ -1,0 +1,13 @@
+###Guideline
+
+Guideline只能用于ConstraintLayout中，是一个工具类，不会被显示，仅仅用于辅助布局。 
+它可以是horizontal或者 vertical的。（例如：android:orientation="vertical"） 
+* vertical的Guideline宽度为零，高度为ConstraintLayout的高度 
+* horizontal的Guideline高度为零，宽度为ConstraintLayout的高度
+
+定位Guideline有三种方式： 
+* 指定距离左侧或顶部的固定距离（layout_constraintGuide_begin） 
+* 指定距离右侧或底部的固定距离（layout_constraintGuide_end） 
+* 指定在父控件中的宽度或高度的百分比（layout_constraintGuide_percent）
+既，Guideline的 android:orientation="vertical"时，左侧和右侧的距离百分比，
+Guideline的 android:orientation="horizontal"时距离顶部与距离底部的百分比。
